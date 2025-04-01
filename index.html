@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeSculptor Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #fdfaf6;
+            --sidebar-bg: #2f3e468e;
+            --text-main: #000000;
+            --highlight: #16d449;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        #music-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(47, 62, 70, 0.85);
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 0.4em 0.6em;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 999;
+            transition: background-color 0.3s ease;
+        }
+
+        #music-toggle:hover {
+            background-color: rgba(47, 62, 70, 1);
+        }
+
+
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.25;
+            /* Optional: softens the video look */
+            pointer-events: none;
+            /* Allows clicks through video */
+        }
+
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            display: flex;
+        }
+
+        /* Sidebar */
+        aside {
+            width: 180px;
+            background-color: var(--sidebar-bg);
+            color: #fff;
+            min-height: 100vh;
+            padding: 1.5em 0.75em;
+            position: fixed;
+        }
+
+        aside h1 {
+            font-family: 'Lora', serif;
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        aside p {
+            font-size: 0.85em;
+            margin-bottom: 1.5em;
+            color: #ccc;
+        }
+
+        aside nav a {
+            display: block;
+            font-size: 0.9em;
+            color: #eee;
+            text-decoration: none;
+            padding: 0.5em 0.75em;
+            margin: 0.3em 0;
+            border-left: 4px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        main {
+            margin-left: 180px;
+            padding: 3em 2em;
+            width: 100%;
+        }
+
+        section {
+            margin-bottom: 4em;
+            scroll-margin-top: 3em;
+        }
+
+        section h2 {
+            font-family: 'Lora', serif;
+            font-size: 2em;
+            color: var(--highlight);
+            margin-bottom: 1em;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 2em;
+            flex-wrap: wrap;
+        }
+
+        .hero img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 10px var(--card-shadow);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5em;
+            font-family: 'Lora', serif;
+            margin-bottom: 0.4em;
+        }
+
+        .hero-text p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 0.5em;
+            padding: 1.5em;
+            margin-bottom: 2em;
+            box-shadow: 0 4px 12px var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--highlight);
+        }
+
+        .project-card a {
+            color: var(--sidebar-bg);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2em 1em;
+            color: #999;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            aside {
+                display: none;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 2em 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Music Player -->
+    <audio id="bg-music" loop>
+        <source src="Audio/1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" title="Play/Pause Music">▶️</button>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        const toggleBtn = document.getElementById('music-toggle');
+
+        let isPlaying = false;
+
+        toggleBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                music.pause();
+                toggleBtn.textContent = '▶️';
+            } else {
+                music.play();
+                toggleBtn.textContent = '⏸️';
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+
+
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="Videos/vid1.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <!-- ... rest of the content ... -->
+    <aside>
+        <h1>Quynh Dinh</h1>
+        <p>Computer Science Student</p>
+        <nav>
+            <a href="#about" class="active">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <img src="Images/portfolio.PNG" alt="My Profile">
+            <div class="hero-text">
+                <h1>Hello, I’m Quynh Dinh </h1>
+                <p>Hi there! I’m Quynh Dinh, a Computer Science student with experience in programming, data and algorithm structures. 
+                    I’m passionate about problem- solving, software development, AI and machine learning, and continuously learning new technologies.
+                </p>
+            </div>
+        </section>
+        <section id="experience">
+            <h2>Experience</h2>
+            <p> Director of SaaS Sales Solutions </p>
+
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Work</h2>
+
+            <div class="project-card">
+                <h3>Construct a Pro Forma Financial Model for a Software Startup</h3>
+                <p>Develop a financial forecast to model growth potential for a high-growth SaaS company by using computational analysis to predict revenue and scalability.    
+                </p>
+                <a href="#">Explore Project →</a>
+            </div>
+
+            
+
+            
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:quynhdoculo@gmail.com">quynhdoculo@gmail.com</a></p>
+            <p>GitHub: <a href="#">Quynh Dinh</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/quynn-dinh-/">Click Here</a></p>
+        </section>
+
+        <footer>
+            &copy; 2025 Dinh Quynh Thi Thuy 
+        </footer>
+    </main>
+
+
+
+
+</body>
+
+</html>
