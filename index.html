@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://trieuhuygiang.github.io/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quynh Dinh Portfolio</title>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            position: relative;
+            /* Needed for absolute positioning of video */
+            overflow-x: hidden;
+            /* Prevent horizontal scrollbar */
+            
+        }
+
+          /* Video Background */
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* Place behind other content */
+            filter: blur(9px);
+            /* Apply blur effect */
+            background: url('Images/fallback.jpg') no-repeat center center;
+            background-size: cover;
+
+        }
+
+
+
+          
+        header {
+            background-color: rgba(94, 14, 54, 0.213);
+            /* Semi-transparent background */
+            color: #a52163;
+            text-align: center;
+            padding: 1em 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.4rem;
+        }
+        header h1 {
+            margin-bottom: 0.2em;
+        }
+
+        h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+        header p {
+            margin-top: 1.0;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: rgba(6, 0, 0, 0.884);
+            font-size: 1.1rem;
+            margin-top: 0.3em;
+        }
+
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* circular image */
+            object-fit: cover;
+            border: 3px solid rgba(139, 52, 97, 0.488); /* optional: nice white ring */
+            box-shadow: 0 4px 10px rgba(143, 68, 115, 0.583); /* subtle shadow */
+            margin-bottom: 10px;
+        }
+
+
+
+        nav {
+            background-color: rgba(244, 244, 244, 0.8);
+            /* Semi-transparent background */
+            padding: 0.5em 0;
+            text-align: center;      
+            position: sticky;
+            top: 0;
+            z-index: 100; 
+            border-top: 1px solid rgba(164, 26, 95, 0.551);
+border-bottom: 1px solid rgba(164, 26, 95, 0.551);
+        }
+
+        
+
+        nav a {
+            display: inline-block;
+            margin: 0 1em;
+            padding: 0.4em 1em;
+            border-radius: 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #c8156f97;
+            color: white;
+        }
+        nav a.active {
+            background-color: #c8156f97; /* pink/mauve tone from your screenshot */
+        }
+
+
+        section {
+            padding: 2em;
+            max-width: 800px;
+            margin: 0 auto;
+
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent background */
+            border-radius: 8px;
+            /* Optional: Rounded corners */
+            margin-top: 20px;
+            /* Add some space from the top */
+            
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+                }
+
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+        }
+
+        
+
+        section h2 { 
+            color: #a52163; /* or your exact header color */
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 1px #8c1f60;
+            margin-bottom: 0.5em;
+            margin-bottom: 0.2em; /* You can make this smaller if needed */
+        }
+
+        
+        .project {
+            border: 1px solid #ddd;
+            padding: 1em;
+            margin-bottom: 1em;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Semi-transparent background */
+            border-radius: 4px;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            /* Semi-transparent background */
+            color: rgba(227, 224, 224, 0.829);
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1em;
+        }
+
+        .project-image {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 1em;
+        }
+        /* Add this if want Education section bullet point indendted to the left  */
+        /* ul {
+            padding-left: 0;
+            list-style-position: inside;
+        } */
+
+        #contact i {
+            font-size: 1.4rem;
+            margin: 0 10px;
+            color: #777;
+            transition: color 0.3s ease;
+            }
+
+            #contact a:hover i {
+            color: #444; /* grey */
+        }
+        This makes the email not blue
+        #contact p a[href^="mailto:"] {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-icons {
+            margin-top: 1em;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-icons i {
+            font-size: 1.8rem;
+            color: #777;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-icons i:hover {
+            color: #8b114e; /* Your brand color */
+            transform: scale(1.15);
+        }
+
+        .link-style {
+            color:#a41a5f; /* Or whatever color you're using */
+            text-decoration: none;
+        }
+
+        .link-style:hover {
+            text-decoration: underline;
+        }
+
+        .glow-text {
+            font-family: 'Poppins', sans-serif;
+            color: #91224f;
+            font-size: 2.5rem;
+            text-shadow:
+                0 0 5px #c86a90,
+                0 0 15px #5e0e36;
+        }
+        .project-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .project-image {
+        max-width: 220px;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-text {
+        flex: 1;
+        min-width: 280px;
+        font-size: 1rem;
+        }
+
+        /* Responsive fix for mobile */
+        @media (max-width: 700px) {
+            .project-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-text {
+                text-align: center;
+            }
+        }
+
+        #audio-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 10000; /* very high to be on top of everything */
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            pointer-events: auto;
+        }
+        #playButton {
+            background-color: #b21965ab;
+            color: rgba(255, 255, 255, 0.79);
+            border: none;
+            padding: 0.4em 0.9em;
+            font-size: 0.7rem;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease-in-out;
+        }
+
+        #playButton:hover {
+            background-color: #8b114edc;
+            transform: scale(1.05);
+        }
+
+
+
+
+
+    
+    </style>
+        </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+
+
+    <!-- <video autoplay="" muted="" loop="" id="video-background">
+        <source src="Videos/coffee.mp4" type="video/mp4">
+    </video> -->
+
+    <video autoplay muted loop playsinline id="video-background">
+        <source src="Videos/coffee-2.mp4" type="video/mp4">
+      </video>
+      
+
+    <header>
+        <img src="Images/portfolio.PNG" alt="Header Image">
+        <h1 class ="glow-text"> Quynh Dinh</h1>
+        <p class="subtitle">Computer Science Undergraduate</p>
+    </header>
+
+    <nav>
+        <a href="#about"class="active">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+   
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi there! I’m Quynh Dinh - but you can call me Quinn. 
+            I grew up in Viet Nam and moved to the US for college. I’m currently living in San Francisco, studying Computer Science. I have experience in programming, data structures, and algorithm. 
+            I’m passionate about problem-solving, software development, AI and machine learning, and I’m always eager to learn new technologies. </p>
+            <p>
+            In my free time, I enjoy going for walks or hiking.
+            I love cooking, especially Vietnamese dishes- it’s something I grew up with and still exploring. I also practice nail art as both a hobby and part-time job, where I get to be creative and express my artistic side.    
+            </p>
+    </section>
+
+
+    <section id="Education">
+        <h2>Education</h2>
+        <ul>
+          <li>
+            <strong>National Cosmetology Beauty School</strong><br>
+            Licensed Manicurist & Esthetician (Issued by California Board of Barbering and Cosmetology), 2019
+          </li>
+              
+          <li>
+            <strong>City College of San Francisco</strong> (2023-2025)
+          </li>  
+          <li>
+            <strong>San Francisco State University</strong><br>
+            B.S. in Computer Science (Expected 2027)
+          </li>
+        </ul>
+      </section>
+      
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <p><strong>Director of SaaS Sales Solutions</strong> <span style="color: #a41a5f;">@Pointment</span> (2024 - Present)</p>
+        <!-- <p><strong>Director of SaaS Sales Solutions</strong></p> -->
+        <p>Support salon owners through product education, onboarding, and personalized demos—partnering with the sales team to simplify operations, close deals, and ensure customer satisfaction</p>
+        <p><a href="https://business.pointmentapp.com" target="_blank" style= "color:#a41a5f;">Visit</a></p>
+    </section>
+
+    <section id="project">
+        <h2>Project</h2>
+        <div class="project">
+          <div class="project-content">
+            
+            <!-- Image on the left -->
+            <img src="Images/project.PNG" alt="Pro Forma Model Project" class="project-image">
+      
+            <!-- Text on the right -->
+            <div class="project-text">
+              <div class="project-header">
+                <strong>Construct a Pro Forma Financial Model for a Software Startup</strong>
+                <span class="project-year">(2025)</span>
+              </div>
+              <p>
+                Develop a financial forecast to model growth potential for a high-growth SaaS company by using computational analysis to predict revenue and scalability.
+              </p>
+              <a href="https://github.com/QuynhDinhHP/QuynhDinhHP.github.io/tree/main" target="_blank" class="link-style">Explore</a>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+      
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p> Email: <a href="mailto:quynhdoculo@gmail.com" class="link-style">quynhdoculo@gmail.com</a></p>
+        <div class="contact-icons">
+            <p><a href="https://www.linkedin.com/in/quynn-dinh-/" target="_blank"> <i class="fab fa-linkedin"></i></a></p>      
+            <p> <a href="https://quynhdinhhp.github.io/" target="_blank">  <i class="fab fa-github"></i></a></p>  
+            <p><a href="https://www.instagram.com/quynn96/" target="_blank"> <i class="fab fa-instagram"></i> </a></p>    
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © 2025 All Rights<br>
+        Reserved by Quynh Dinh</p>
+    </footer>
+    <!-- music part -->
+
+    <div id="audio-controls">
+        <button id="playButton">Play Audio</button>
+    </div>
+
+    <audio id="myAudio" loop="">
+        <source src="Audio/Ojos Tristes.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const audio = document.getElementById('myAudio');
+            const playButton = document.getElementById('playButton');
+
+            playButton.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                    playButton.textContent = 'Pause Audio';
+                } else {
+                    audio.pause();
+                    playButton.textContent = 'Play Audio';
+                }
+            });
+        });
+    </script>
+
+    <!--     music part -->
+
+
+
+
+</body></html>
