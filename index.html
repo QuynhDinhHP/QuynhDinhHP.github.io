@@ -28,6 +28,8 @@
             /* Place behind other content */
             filter: blur(9px);
             /* Apply blur effect */
+             background: url('Images/fallback.jpg') no-repeat center center;
+            background-size: cover;
         }
 
         header {
@@ -407,10 +409,15 @@ border-bottom: 1px solid rgba(164, 26, 95, 0.551);
     </footer>
     <!-- music part -->
 
-    <div id="audio-controls">
+<!--     <div id="audio-controls">
         <button id="playButton">Play Audio</button>
     </div>
+ -->
+<video autoplay muted loop playsinline id="video-background">
+  <source src="Videos/coffee.mp4" type="video/mp4">
+</video>
 
+    
     <audio id="myAudio" loop="">
         <source src="Audio/Ojos Tristes.mp3" type="audio/mpeg">
     </audio>
