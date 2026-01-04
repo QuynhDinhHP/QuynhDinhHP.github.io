@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #0b0f19;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* Header */
+.profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+
+  /* stylish touches */
+  padding: 3px;                 /* creates the ring */
+  background: linear-gradient(135deg, #1f2937, #374151);
+  border: 1px solid #1f2937;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+}
+header {
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid #1f2937;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+}
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #0b0f19;
+  border-bottom: 1px solid #1f2937;
+  text-align: center;
+  padding: 0.6rem 0;
+  z-index: 10;
+}
+
+nav a {
+  color: #9ca3af;
+  margin: 0 0.8rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+nav a:hover,
+nav a.active {
+  color: #e5e7eb;
+  background-color: rgba(124, 58, 237, 0.15);
+}
+
+/* Sections */
+section {
+  max-width: 800px;
+  margin: 2.5rem auto;
+  padding: 1.8rem;
+  background-color: #121826;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+}
+
+section h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  color: #e5e7eb;
+}
+
+/* Text */
+p,
+li {
+  color: #9ca3af;
+}
+
+/* Projects */
+.project-header {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.project-year {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+.project-content {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.project-image {
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.project {
+  padding: 1rem 0;
+  border-top: 1px solid #1f2937;
+}
+
+.project:first-child {
+  border-top: none;
+}
+
+@media (max-width: 700px) {
+  .project-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .project-text {
+    text-align: left;
+  }
+}
+
+/* Links */
+a {
+  color: #7c3aed;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #9ca3af;
+  border-top: 1px solid #1f2937;
+}
+
+/* Contact icons */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 1rem;
+}
+
+.contact-icons i {
+  font-size: 1.6rem;
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+
+.contact-icons i:hover {
+  color: #7c3aed;
+}
+
+/* Interactive skill tags */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0.8rem 0 0.8rem;
+}
+
+.skill-tags .tag {
+  appearance: none;
+  border: 1px solid #1f2937;
+  background: rgba(255, 255, 255, 0.02);
+  color: #9ca3af;
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.skill-tags .tag:hover {
+  transform: translateY(-1px);
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.35);
+  color: #e5e7eb;
+}
+
+.skill-tags .tag:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, 0.6);
+  outline-offset: 2px;
+}
+
+.skill-tags .tag.active {
+  background: rgba(124, 58, 237, 0.18);
+  border-color: rgba(124, 58, 237, 0.55);
+  color: #e5e7eb;
+}
+
+/* Details panel */
+.skill-detail {
+  border: 1px solid #1f2937;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.skill-detail-title {
+  display: inline-block;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 0.25rem;
+}
+
+.skill-detail-text {
+  margin: 0.35rem 0 0;
+  color: #9ca3af;
+}
+
